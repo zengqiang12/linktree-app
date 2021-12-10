@@ -1,0 +1,22 @@
+.MusicLink__Wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  & .MusicDetail {
+    &__PlatformName {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.32px;
+    }
+  }
+
+  & .ArrowIcon__Container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

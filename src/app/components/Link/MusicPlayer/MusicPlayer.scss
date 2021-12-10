@@ -1,0 +1,36 @@
+@import 'src/styles/variables';
+
+.MusicPlayer__Wrapper {
+  margin-bottom: 15px;
+  
+  & .MusicDetail {
+    margin-bottom: 15px;
+
+    & .MusicImage__Container {
+      img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+
+    & .PlayIcon__Container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    & .MusicName__Container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+
+  & .MusicPlayer__Progress {
+    & .progress {
+      & .progress-bar {
+        background-color: $green;
+      }
+    }
+  }
+}

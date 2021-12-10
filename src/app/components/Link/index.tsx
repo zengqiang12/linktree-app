@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import './Link.scss';
 import { ELinkType } from 'types/ELinkType';
-import { ILink } from 'types/ILink';
 import Accordion from 'app/components/Accordion';
 import ShowLink from './ShowLink';
+import { ILink } from 'types/ILink';
 import BySongkickIcon from 'app/components/BySongkickIcon';
+import MusicPlayer from './MusicPlayer';
+import { IMusic } from 'types/IMusic';
+import SpotifyIcon from 'app/components/SpotifyIcon';
+import MusicLink from './MusicLink';
 
 interface Props {
   backgroundColor: string;
@@ -23,6 +27,7 @@ const buttonStyle = ({ hover, backgroundColor, textColor }) => ({
 const Link = ({ backgroundColor, textColor, link }: Props) => {
   const [hover, setHover] = useState(false);
   const [showAccordion, setShowAccordion] = useState(false);
+  const [playingMusic, setPlayingMusic] = useState<IMusic>();
 
   const handleClick = () => {
     if (link.linkType === ELinkType.Classic) {
@@ -43,6 +48,36 @@ const Link = ({ backgroundColor, textColor, link }: Props) => {
       >
         <p>{link.title}</p>
       </button>
+      {link.linkType === ELinkType.MusicPlayer && showAccordion && (
+        <Accordion>
+          <div className="SubLink__Wrapper">
+            {playingMusic && (
+              <MusicPlayer
+                title={playingMusic.title}
+                musicImageUrl={playingMusic.musicImageUrl}
+              />
+            )}
+            {link.musics?.map((music, index) => (
+              <div key={index} className="MusicPlatform__Wrapper row">
+                <div
+                  className="MusicIcon__Container col-1"
+                  onClick={() => setPlayingMusic(music)}
+                >
+                  {/* TODO: Should really read icons on the fly */}
+                  <SpotifyIcon />
+                </div>
+                <div className="MusicPlatorm__Container col-11">
+                  <MusicLink
+                    url={music.musicPlatformUrl}
+                    platformName={music.platformName}
+                  />
+                  {link.musics && index < link.musics.length - 1 && <hr />}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Accordion>
+      )}
       {link.linkType === ELinkType.ShowsList && showAccordion && (
         <Accordion>
           <div className="SubLink__Wrapper">
