@@ -3,6 +3,7 @@ import { ILink } from '../types/ILink';
 
 export const mockLinks: ILink[] = [
   {
+    id: 1,
     title: 'Hamlet Show',
     url: null,
     linkType: ELinkType.ShowsList,
@@ -41,6 +42,7 @@ export const mockLinks: ILink[] = [
     musics: [],
   },
   {
+    id: 2,
     title: 'Perfect - Ed Sheeran',
     url: null,
     linkType: ELinkType.MusicPlayer,
@@ -98,6 +100,7 @@ export const mockLinks: ILink[] = [
     ],
   },
   {
+    id: 3,
     title: 'This is a short title',
     url: 'https://www.linkedin.com/in/qiang-zeng-9b0127156/',
     linkType: ELinkType.Classic,
@@ -105,6 +108,7 @@ export const mockLinks: ILink[] = [
     musics: [],
   },
   {
+    id: 4,
     title:
       'This is a long title, and I really want to pass this test. Hope the code I wrote can do the job. Sorry I am late, been busy these days',
     url: 'https://www.linkedin.com/in/qiang-zeng-9b0127156/',
@@ -113,6 +117,7 @@ export const mockLinks: ILink[] = [
     musics: [],
   },
   {
+    id: 5,
     title: 'This is a short title',
     url: 'https://www.linkedin.com/in/qiang-zeng-9b0127156/',
     linkType: ELinkType.Classic,
@@ -120,6 +125,7 @@ export const mockLinks: ILink[] = [
     musics: [],
   },
   {
+    id: 6,
     title: 'This is a short title',
     url: 'https://www.linkedin.com/in/qiang-zeng-9b0127156/',
     linkType: ELinkType.Classic,
@@ -127,6 +133,7 @@ export const mockLinks: ILink[] = [
     musics: [],
   },
   {
+    id: 7,
     title: 'This is a short title',
     url: 'https://www.linkedin.com/in/qiang-zeng-9b0127156/',
     linkType: ELinkType.Classic,
@@ -134,6 +141,7 @@ export const mockLinks: ILink[] = [
     musics: [],
   },
   {
+    id: 8,
     title: 'This is a short title',
     url: 'https://www.linkedin.com/in/qiang-zeng-9b0127156/',
     linkType: ELinkType.Classic,
@@ -141,6 +149,7 @@ export const mockLinks: ILink[] = [
     musics: [],
   },
   {
+    id: 9,
     title: 'This is a short title',
     url: 'https://www.linkedin.com/in/qiang-zeng-9b0127156/',
     linkType: ELinkType.Classic,
@@ -148,6 +157,7 @@ export const mockLinks: ILink[] = [
     musics: [],
   },
   {
+    id: 10,
     title: 'This is a short title',
     url: 'https://www.linkedin.com/in/qiang-zeng-9b0127156/',
     linkType: ELinkType.Classic,

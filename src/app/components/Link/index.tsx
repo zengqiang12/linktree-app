@@ -14,6 +14,8 @@ interface Props {
   backgroundColor: string;
   textColor: string;
   link: ILink;
+  accordionOpen: boolean;
+  onLinkClick: Function;
 }
 
 // TODO: should be tranformed to some libraries based on JSS like material UI
@@ -24,16 +26,21 @@ const buttonStyle = ({ hover, backgroundColor, textColor }) => ({
   border: `2px solid ${backgroundColor}`,
 });
 
-const Link = ({ backgroundColor, textColor, link }: Props) => {
+const Link = ({
+  backgroundColor,
+  textColor,
+  link,
+  accordionOpen,
+  onLinkClick,
+}: Props) => {
   const [hover, setHover] = useState(false);
-  const [showAccordion, setShowAccordion] = useState(false);
   const [playingMusic, setPlayingMusic] = useState<IMusic>();
 
   const handleClick = () => {
     if (link.linkType === ELinkType.Classic) {
       window.open(link.url || '', '_blank');
     } else {
-      setShowAccordion(!showAccordion);
+      onLinkClick(link.id);
     }
   };
 
@@ -48,7 +55,7 @@ const Link = ({ backgroundColor, textColor, link }: Props) => {
       >
         <p>{link.title}</p>
       </button>
-      {link.linkType === ELinkType.MusicPlayer && showAccordion && (
+      {link.linkType === ELinkType.MusicPlayer && accordionOpen && (
         <Accordion>
           <div className="SubLink__Wrapper">
             {playingMusic && (
@@ -78,7 +85,7 @@ const Link = ({ backgroundColor, textColor, link }: Props) => {
           </div>
         </Accordion>
       )}
-      {link.linkType === ELinkType.ShowsList && showAccordion && (
+      {link.linkType === ELinkType.ShowsList && accordionOpen && (
         <Accordion>
           <div className="SubLink__Wrapper">
             <div className="SubLink__Wrapper__Scorllable">
