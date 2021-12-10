@@ -23,7 +23,7 @@ const buttonStyle = ({ hover, backgroundColor, textColor }) => ({
 const Link = ({ backgroundColor, textColor, link }: Props) => {
   const [hover, setHover] = useState(false);
   const [showAccordion, setShowAccordion] = useState(false);
-console.log('here', link)
+
   const handleClick = () => {
     if (link.linkType === ELinkType.Classic) {
       window.open(link.url || '', '_blank');
