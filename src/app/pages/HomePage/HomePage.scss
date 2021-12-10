@@ -1,0 +1,14 @@
+@import 'src/styles/variables';
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__Wrapper {
+    margin: 0px auto;
+    max-width: 680px;
+    width: 100%;
+    height: 100%;
+  }
+}
