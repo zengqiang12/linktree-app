@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { useState } from 'react';
 import './Link.scss';
 import { ELinkType } from 'types/ELinkType';
 import { ILink } from 'types/ILink';
