@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './Link.scss';
 import { ELinkType } from 'types/ELinkType';
 import { ILink } from 'types/ILink';
+import Accordion from 'app/components/Accordion';
+import ShowLink from './ShowLink';
+import BySongkickIcon from 'app/components/BySongkickIcon';
 
 interface Props {
   backgroundColor: string;
@@ -19,10 +22,13 @@ const buttonStyle = ({ hover, backgroundColor, textColor }) => ({
 
 const Link = ({ backgroundColor, textColor, link }: Props) => {
   const [hover, setHover] = useState(false);
-
+  const [showAccordion, setShowAccordion] = useState(false);
+console.log('here', link)
   const handleClick = () => {
     if (link.linkType === ELinkType.Classic) {
       window.open(link.url || '', '_blank');
+    } else {
+      setShowAccordion(!showAccordion);
     }
   };
 
@@ -35,14 +41,26 @@ const Link = ({ backgroundColor, textColor, link }: Props) => {
         onPointerOut={() => setHover(false)}
         onClick={handleClick}
       >
-        <p>
-          {link.linkType === ELinkType.Classic
-            ? link.title || ' '
-            : link.linkType === ELinkType.MusicPlayer
-            ? 'Music'
-            : 'Shows'}
-        </p>
+        <p>{link.title}</p>
       </button>
+      {link.linkType === ELinkType.ShowsList && showAccordion && (
+        <Accordion>
+          <div className="SubLink__Wrapper">
+            <div className="SubLink__Wrapper__Scorllable">
+              {link.shows?.map((show, index) => (
+                <div key={index}>
+                  <ShowLink show={show} />
+                  {link.shows && index < link.shows.length - 1 && <hr />}
+                </div>
+              ))}
+            </div>
+            <hr />
+            <div className="Provider__Container">
+              <BySongkickIcon />
+            </div>
+          </div>
+        </Accordion>
+      )}
     </div>
   );
 };

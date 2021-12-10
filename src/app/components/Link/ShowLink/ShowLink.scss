@@ -1,0 +1,28 @@
+.ShowLink__Wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  & .ShowDetail {
+    &__Date {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.32px;
+    }
+
+    &__Venue {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: -0.24px;
+    }
+  }
+
+  & .Show__Link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

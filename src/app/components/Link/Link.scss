@@ -1,3 +1,5 @@
+@import 'src/styles/variables';
+
 .Link {
   height: auto;
 
@@ -18,6 +20,26 @@
 
     p {
       margin-bottom: 0px;
+    }
+  }
+
+  & .SubLink__Wrapper {
+    padding: 16px 30px;
+
+    &__Scorllable {
+      height: 330px;
+      overflow-y: scroll;
+    }
+
+    & .Provider__Container {
+      display: flex;
+      justify-content: center;
+
+      svg {
+        color: $blue-grey-2;
+        width: 72.67px;
+        height: 16px;
+      }
     }
   }
 }
